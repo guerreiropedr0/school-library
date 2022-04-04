@@ -1,6 +1,6 @@
 class Person
 
-  def initialize(name = 'Unknown', age, parent_permission = true)
+  def initialize(name = 'Unknown', parent_permission = true, age)
     @id = id
     @name = name
     @age = age
@@ -24,5 +24,12 @@ class Person
 
   def age=(value)
     @age = value
+  end
+
+  def is_of_age?
+    if @age >= 18
+      true
+    else false
+    end
   end
 end
