@@ -13,3 +13,9 @@ class Decorator < Nameable
     @namable.correct_name
   end
 end
+
+class CapitalizeDecorator < Decorator
+  def correct_name
+    @namable.correct_name.capitalize
+  end
+end
