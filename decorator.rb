@@ -5,17 +5,17 @@ class Nameable
 end
 
 class Decorator < Nameable
-  def initialize(namable)
-    @namable = namable
+  def initialize(nameable)
+    @nameable = nameable
   end
 
   def correct_name
-    @namable.correct_name
+    @nameable.correct_name
   end
 end
 
 class CapitalizeDecorator < Decorator
   def correct_name
-    @namable.correct_name.capitalize
+    @nameable.correct_name.capitalize
   end
 end
