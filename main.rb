@@ -30,9 +30,9 @@ def main
       parent_permission = gets.chomp
       app.create_student(age, name, parent_permission)
     else
-      # print 'Specialization: '
-      # specialization = gets.chomp
-      # app.create_person(age, specialization, name)
+      print 'Specialization: '
+      specialization = gets.chomp
+      app.create_teacher(age, name, specialization)
     end
     puts 'Person created successfully'
   when 3

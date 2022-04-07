@@ -37,4 +37,8 @@ class App
   def create_student(age, name, parent_permission)
     @people.push(Student.new(age, nil, name, parent_permission: parent_permission))
   end
+
+  def create_teacher(age, name, specialization)
+    @people.push(Student.new(age, specialization, name))
+  end
 end
