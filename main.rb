@@ -32,7 +32,10 @@ def main
     when 5
       app.person_rentals
     when 6
+      puts 'Thank you for using this app!'
       break
+    else
+      puts 'Please choose an appropriate number'
     end
   end
 end
