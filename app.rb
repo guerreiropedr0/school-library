@@ -1,6 +1,7 @@
 require_relative './book'
 require_relative './student'
 require_relative './teacher'
+require_relative './rental'
 
 class App
   attr_accessor :books, :people
@@ -8,6 +9,7 @@ class App
   def initialize
     @books = []
     @people = []
+    @rentals = []
   end
 
   def list_books
@@ -41,4 +43,8 @@ class App
   def create_teacher(age, name, specialization)
     @people.push(Student.new(age, specialization, name))
   end
+
+  # def create_rental(date, person, book)
+  #   @rentals.push(Rental.new(date, person, book))
+  # end
 end
