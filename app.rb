@@ -1,3 +1,5 @@
+require './book'
+
 class App
   attr_accessor :books, :people
   def initialize
@@ -15,5 +17,9 @@ class App
     @people.each do |person|
       puts "[#{person.class}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
     end
-  end  
+  end
+
+  def create_book(title, author)
+    @books.push(Book.new(title, author))
+  end
 end
