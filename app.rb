@@ -80,15 +80,25 @@ class App
   def create_rental
     puts 'Select a book from the following list by number'
     list_books
-    book_id = gets.chomp.to_i
+    book_index = gets.chomp.to_i
     puts
     puts 'Select a person from the following list by number (not id)'
     list_people
-    person_id = gets.chomp.to_i
+    person_index = gets.chomp.to_i
     puts
     print 'Date: '
     date = gets.chomp
-    @rentals.push(Rental.new(date, @people[person_id], books[book_id]))
+    @rentals.push(Rental.new(date, @people[person_index], books[book_index]))
     puts 'Rental created successfully'
+  end
+
+  def person_rentals
+    print 'ID of person:'
+    person_id = gets.chomp.to_i
+    @rentals.each do |rental|
+      if rental.person.id == person_id
+        puts "Date: #{rental.date}, Book \"#{rental.book.title}\" by #{rental.book.author}"
+      end
+    end
   end
 end

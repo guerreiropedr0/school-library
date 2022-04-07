@@ -29,6 +29,8 @@ def main
       app.create_book
     when 4
       app.create_rental
+    when 5
+      app.person_rentals
     when 6
       break
     end
