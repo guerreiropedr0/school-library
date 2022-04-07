@@ -23,21 +23,12 @@ def main
       app.list_books
     when 1
       app.list_people
-
     when 2
       app.create_person
     when 3
-      print 'Title: '
-      title = gets.chomp
-      print 'Author: '
-      author = gets.chomp
-      app.create_book(title, author)
-      puts 'Book created successfully'
-
+      app.create_book
     when 4
-      puts 'Select a book from the following list by number'
-      app.list_books
-      book = gets.chomp
+      app.create_rental
     when 6
       break
     end

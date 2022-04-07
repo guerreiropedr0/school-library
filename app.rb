@@ -16,8 +16,8 @@ class App
     if @books.length.zero?
       puts 'You don\'t have any books'
     else
-      @books.each do |book|
-        puts "Title: #{book.title}, Author: #{book.author}"
+      @books.each_with_index do |book, index|
+        puts "#{index}) Title: #{book.title}, Author: #{book.author}"
       end
     end
   end
@@ -26,16 +26,13 @@ class App
     if @people.length.zero?
       puts 'You need at least one person'
     else
-      @people.each do |person|
-        puts "[#{person.class}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
+      @people.each_with_index do |person, index|
+        puts "#{index}) [#{person.class}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
       end
     end
   end
 
-  def create_book(title, author)
-    @books.push(Book.new(title, author))
-  end
-
+  
   def create_person
     print 'Do you want to create a student (1) or a teacher (2)? [Input the number]: '
     education = gets.chomp.to_i
@@ -57,8 +54,9 @@ class App
     print 'Has parent permission? [Y/N]: '
     parent_permission = gets.chomp
     @people.push(Student.new(age, nil, name, parent_permission: parent_permission))
+    puts 'Person created successfully'
   end
-
+  
   def create_teacher
     print 'Age: '
     age = gets.chomp.to_i
@@ -67,9 +65,30 @@ class App
     print 'Specialization: '
     specialization = gets.chomp
     @people.push(Teacher.new(age, specialization, name))
+    puts 'Person created successfully'
   end
-
-  def create_rental(date, person, book)
-    @rentals.push(Rental.new(date, person, book))
+  
+  def create_book
+    print 'Title: '
+      title = gets.chomp
+      print 'Author: '
+      author = gets.chomp
+      @books.push(Book.new(title, author))
+      puts 'Book created successfully'
+  end
+  
+  def create_rental
+    puts 'Select a book from the following list by number'
+    list_books
+    book_id = gets.chomp.to_i
+    puts
+    puts 'Select a person from the following list by number (not id)'
+    list_people
+    person_id = gets.chomp.to_i
+    puts
+    print 'Date: '
+    date = gets.chomp
+    @rentals.push(Rental.new(date, @people[person_id], books[book_id]))
+    puts 'Rental created successfully'
   end
 end
