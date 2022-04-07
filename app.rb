@@ -8,14 +8,22 @@ class App
   end
   
   def list_books
-    @books.each do |book|
-      puts "Title: #{book.title}, Author: #{book.author}"
+    if @books.length == 0
+      puts 'You don\'t have any books'
+    else
+      @books.each do |book|
+        puts "Title: #{book.title}, Author: #{book.author}"
+      end
     end
   end
 
   def list_people
-    @people.each do |person|
-      puts "[#{person.class}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
+    if @people.length == 0
+      puts 'You need at least one person'
+    else
+      @people.each do |person|
+        puts "[#{person.class}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
+      end
     end
   end
 

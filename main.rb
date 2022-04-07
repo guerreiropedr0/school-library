@@ -15,17 +15,9 @@ def main
   selected = gets.chomp.to_i - 1
   case selected
   when 0
-    begin
-      app.list_books
-    rescue => exception
-      puts 'You don\'t have any books'
-    end
+    app.list_books
   when 1
-    begin
-      app.list_people
-    rescue => exception
-      puts 'You need at least one person'
-    end
+    app.list_people
   when 2
   ## CREATE A PERSON
   when 3
