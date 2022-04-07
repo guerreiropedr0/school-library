@@ -12,10 +12,10 @@ def menu
   end
 end
 
-def main
+def main # rubocop:disable Metrics/CyclomaticComplexity, Metrics/MethodLength
   app = App.new
-
   puts 'Welcome to School Library App!'
+
   while menu
     selected = gets.chomp.to_i - 1
     case selected

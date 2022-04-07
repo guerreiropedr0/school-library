@@ -32,7 +32,6 @@ class App
     end
   end
 
-  
   def create_person
     print 'Do you want to create a student (1) or a teacher (2)? [Input the number]: '
     education = gets.chomp.to_i
@@ -45,7 +44,7 @@ class App
       puts 'You can only choose between (1) or (2)'
     end
   end
-  
+
   def create_student
     print 'Age: '
     age = gets.chomp.to_i
@@ -56,7 +55,7 @@ class App
     @people.push(Student.new(age, nil, name, parent_permission: parent_permission))
     puts 'Person created successfully'
   end
-  
+
   def create_teacher
     print 'Age: '
     age = gets.chomp.to_i
@@ -67,16 +66,16 @@ class App
     @people.push(Teacher.new(age, specialization, name))
     puts 'Person created successfully'
   end
-  
+
   def create_book
     print 'Title: '
-      title = gets.chomp
-      print 'Author: '
-      author = gets.chomp
-      @books.push(Book.new(title, author))
-      puts 'Book created successfully'
+    title = gets.chomp
+    print 'Author: '
+    author = gets.chomp
+    @books.push(Book.new(title, author))
+    puts 'Book created successfully'
   end
-  
+
   def create_rental
     puts 'Select a book from the following list by number'
     list_books
