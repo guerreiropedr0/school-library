@@ -26,6 +26,15 @@ def main
     rescue => exception
       puts 'You need at least one person'
     end
+  when 2
+  ## CREATE A PERSON
+  when 3
+    print 'Title: '
+    title = gets.chomp
+    print 'Author: '
+    author = gets.chomp
+    app.create_book(title, author)
+    puts 'Book created successfully'
   end
 end
 
