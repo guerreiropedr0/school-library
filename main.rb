@@ -1,7 +1,7 @@
 require_relative './app'
 
 def main
-  app = App.new()
+  app = App.new
   puts 'Welcome to School Library App!'
   puts 'Please choose an option by entering a number:'
 
@@ -19,7 +19,22 @@ def main
   when 1
     app.list_people
   when 2
-  ## CREATE A PERSON
+    print 'Do you want to create a student (1) or a teacher (2)? [Input the number]: '
+    education = gets.chomp.to_i
+    print 'Age: '
+    age = gets.chomp.to_i
+    print 'Name: '
+    name = gets.chomp
+    if education == 1
+      print 'Has parent permission? [Y/N]: '
+      parent_permission = gets.chomp
+      app.create_student(age, name, parent_permission)
+    else
+      # print 'Specialization: '
+      # specialization = gets.chomp
+      # app.create_person(age, specialization, name)
+    end
+    puts 'Person created successfully'
   when 3
     print 'Title: '
     title = gets.chomp
@@ -30,4 +45,4 @@ def main
   end
 end
 
-main()
+main
